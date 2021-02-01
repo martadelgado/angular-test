@@ -127,5 +127,9 @@
       }
     }
   },
-  "defaultProject": "angular-test"
+  "defaultProject": "angular-test",
+  "cli": {
+    "analytics": "5704fd23-2d36-44c8-b572-03a7a201613b",
+    "defaultCollection": "@ngxs/schematics"
+  }
 }

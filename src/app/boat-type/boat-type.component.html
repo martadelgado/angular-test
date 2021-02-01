@@ -1,0 +1,23 @@
+<div class="flex">
+  <div class="container__left">
+    <app-button-back></app-button-back>
+    <div class="wrapper__boat-types">
+        <div class="margin__bottom-3em">
+          <span class="title__big">Votre bateau</span> <br>
+        </div>
+        <form [formGroup]="boatForm">
+          <div class="margin__bottom-3em">
+            <ng-container *ngFor="let type of boatTypes">
+                <label class="wrapper__input-radio" [class.error]="showError">
+                  <input type="radio" name="type" value="{{type}}" formControlName="type" required>
+                  <span>{{type}}</span>
+                </label>
+            </ng-container>
+          </div>
+          <app-button [buttonText]="buttonText" [boatForm]="boatForm" [boatPage]="'type'" (click)="addToForm()"></app-button>
+        </form>
+      </div>
+  </div>
+  <div class="container__right"></div>
+</div>
+

@@ -1,0 +1,21 @@
+<div class="container__submit">
+  <app-button-back></app-button-back>
+  <div class="wrapper__submit-boat">
+    <div class="emoji__cheers">🎉</div>
+    <h3>C'est fini</h3>
+    <p>Votre bateau sera bientôt visible par la plus grande communauté de marins qui souhaitent louer entre particuliers. Bienvenue sur Click & Boat !</p>
+    <ng-container *ngIf="boatItems$|async as boatItems">
+      <div *ngFor="let boat of boatItems">
+        <strong>{{boat.type}}</strong>
+        {{boat.ownerType}}
+        <ng-container *ngIf="boat.length"><div>Longueur : {{boat.length}}m</div></ng-container>
+        <ng-container *ngIf="boat.width"><div>Largeur : {{boat.width}}m</div></ng-container>
+        <ng-container *ngIf="boat.draught"><div>Tirant d'eau : {{boat.draught}}m</div></ng-container>
+        <ng-container *ngIf="boat.foil"><div>Foil</div></ng-container>
+        <ng-container *ngIf="boat.annex"><div>Annexe</div></ng-container>
+        <ng-container *ngIf="boat.equipment"><div>Equipage</div></ng-container>
+      </div>
+    </ng-container>
+    <app-button [buttonText]="buttonText" routerLink="/" (click)="addBoat()"></app-button>
+  </div>
+</div>

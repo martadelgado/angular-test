@@ -1,0 +1,27 @@
+.button__main {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+  border-radius: 2px;
+  border-style: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 1.2em 2.2em;
+  --swiper-theme-color: #007aff;
+  --swiper-navigation-size: 44px;
+  -webkit-box-direction: normal;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-top: 24px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.43;
+  user-select: none;
+  white-space: nowrap;
+  transition: background, border, box-shadow .3s ease, -webkit-box-shadow .3s ease;
+  font-size: 15px;
+}

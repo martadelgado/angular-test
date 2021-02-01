@@ -1,0 +1,36 @@
+.container__right {
+  background-image: url('/../../assets/image4.jpg');
+  background-size: cover;
+}
+
+.input__number {
+  background-color: #fff;
+  border: 1px solid #bfc7d2;
+  border-radius: 3px;
+  color: #4d5358;
+  display: block;
+  font-size: 1em;
+  height: 40px;
+  margin-right: 6px;
+  padding: 0 20px 0 16px;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  width: 60px;
+  &:focus {
+    border-color: #1799dd;
+    background-color: #fff;
+    outline: none;
+    outline-offset: 0;
+  }
+
+  + span {
+    position: absolute;
+    top: 30px;
+    right: 16px;
+  }
+}
+
+.wrapper__input-settings {
+  display: inline-block;
+  position:relative;
+}

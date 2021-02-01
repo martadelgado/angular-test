@@ -1,0 +1,50 @@
+<div class="flex">
+  <div class="container__left">
+    <app-button-back></app-button-back>
+    <div>
+      <div class="margin__bottom-3em">
+        <span class="title__big">Louer son bateau</span> <br>
+      </div>
+      <form [formGroup]="boatForm">
+        <div class="wrapper__input-settings">
+           <label>Longueur</label>
+          <input type="text" formControlName="length" name="length" class="input__number" maxlength="3">
+          <span>m</span>
+        </div>
+        <div class="wrapper__input-settings">
+          <label>Largeur</label>
+          <input type="text" formControlName="width" name="width" class="input__number" maxlength="3">
+          <span>m</span>
+        </div>
+        <div class="wrapper__input-settings">
+          <label>Tirant d'eau</label>
+          <input type="text" formControlName="draught" name="draught" class="input__number" maxlength="3">
+          <span>m</span>
+        </div>
+        <div class="flex margin__bottom-3em">
+          <div class="flex" *ngIf="isSail">
+            <label class="wrapper__input-radio">
+              <input type="checkbox" name="foil" formControlName="foil">
+              <span>Foil</span>
+            </label>
+          </div>
+          <div class="flex">
+            <label class="wrapper__input-radio">
+              <input type="checkbox" name="annex" formControlName="annex">
+              <span>Annexe</span>
+            </label>
+          </div>
+          <div class="flex">
+            <label class="wrapper__input-radio">
+              <input type="checkbox" name="equipment" formControlName="equipment">
+              <span>Equipage</span>
+            </label>
+          </div>
+        </div>
+        <app-button [buttonText]="buttonText" routerLink="/boat/submit" (click)="addToForm()"></app-button>
+      </form>
+    </div>
+  </div>
+  <div class="container__right"></div>
+</div>
+

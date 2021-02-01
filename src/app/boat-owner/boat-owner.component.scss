@@ -1,0 +1,27 @@
+.ampersand {
+  color: #dd4d93;
+  font-size: 1.2em;
+}
+
+.container__right {
+  background-image: url('/../../assets/image3.jpg');
+  background-size: cover;
+}
+
+.text__assurance {
+  &:not(:first-child) {
+    margin-top: 12px;
+  }
+
+  h4, p {
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.8em;
+  }
+
+  .icon {
+    margin-right: 12px;
+  }
+}

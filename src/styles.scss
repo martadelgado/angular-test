@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font: 300 15px Lato,Arial,sans-serif;
+  line-height: 170%;
+  color: #757c84;
+  background-color: #f9fafd;
+  height: 100%;
+  width: 100%;
+}
+
+.container__left,
+.container__right {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 660px;
+  justify-content: center;
+  width: 50%;
+}
+
+.container__right {
+  .box__home-right {
+    background-color: white;
+    border-radius: 2px;
+    padding: 52px 38px;
+    width: 300px;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+input:checked + span {
+  color: #1abc9c;
+  font-weight: bold;
+}
+
+.margin__bottom-3em {
+  margin-bottom: 3em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.title__big {
+  font-size: 1.3em;
+}
+
+.title__bigger {
+  font-size: 1.4em;
+}
+
+.wrapper__input-radio {
+  display: inline-block;
+  border: 1px solid #E6E6E6;
+  border-radius: 2px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 1px 0 rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 1px 0 rgba(0,0,0,0.04);
+  max-width: 416px;
+  margin-right: 16px;
+  margin-top: 12px;
+  padding: 16px 24px;
+
+  &.error {
+    border-color: #e67474;
+  }
+}
