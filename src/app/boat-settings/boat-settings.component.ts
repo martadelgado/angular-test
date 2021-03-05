@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Boat} from '../boat';
 import {BoatAction} from '../boat/boat.actions';
-import {Store} from '@ngxs/store';
+import {Select, Store} from '@ngxs/store';
 import {BoatCreationAction} from '../boat-creation/boat-creation.actions';
+import {BoatCreationState} from '../boat-creation/boat-creation.state';
+import {Observable} from 'rxjs';
+import {BoatTypeModel} from '../models/boat-type.model';
 
 @Component({
   selector: 'app-boat-settings',
@@ -11,6 +13,8 @@ import {BoatCreationAction} from '../boat-creation/boat-creation.actions';
   styleUrls: ['./boat-settings.component.scss']
 })
 export class BoatSettingsComponent implements OnInit {
+  @Select(BoatCreationState.getBoatType) boatType$!: Observable<string>;
+
   boatForm = new FormGroup({
     length: new FormControl('', Validators.maxLength(3)),
     width: new FormControl('', Validators.maxLength(3)),

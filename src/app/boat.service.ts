@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {of} from 'rxjs';
 import {BOATS} from '../mock-boats';
-import {Boat} from './boat';
+import {BoatModel} from './models/boat.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoatService {
-  boats: Boat[] = [];
+  boats: BoatModel[] = [];
 
   constructor() { }
 
@@ -15,7 +15,7 @@ export class BoatService {
     return of(BOATS);
   }
 
-  add(newBoat: Boat) {
+  add(newBoat: BoatModel[]) {
     return of(BOATS.push(newBoat));
   }
 }

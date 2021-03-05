@@ -43,9 +43,9 @@ export class BoatState {
   public add(ctx: StateContext<BoatStateModel>, { boat }: BoatAction.AddBoat) {
     return this.boatService.add(boat).pipe(
       tap( result => {
-        const stateModel = ctx.getState();
-        stateModel.items = [...stateModel.items, boat];
-        ctx.setState(stateModel);
+        const state = ctx.getState();
+        state.items = [...state.items, boat];
+        ctx.setState(state);
       })
     );
   }

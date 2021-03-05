@@ -1,12 +1,17 @@
 import {State, Action, Selector, StateContext, StateOperator} from '@ngxs/store';
 import { BoatCreationAction } from './boat-creation.actions';
-import {patch, append, updateItem} from '@ngxs/store/operators';
-import {BoatCreationModel} from '../models/boat-creation.model';
 import {Injectable} from '@angular/core';
-import {BoatService} from '../boat.service';
 
 export interface BoatCreationStateModel {
-  items: BoatCreationModel[];
+  id?: number;
+  ownerType?: string;
+  type?: string;
+  length?: number;
+  width?: number;
+  draught?: number;
+  equipment?: boolean;
+  annex?: boolean;
+  foil?: boolean;
 }
 
 @State<BoatCreationStateModel>({
@@ -27,36 +32,26 @@ export class BoatCreationState {
 
   @Selector()
   public static getCreatedBoat(state: BoatCreationStateModel) {
-    return state.items;
+    return state;
+  }
+
+  @Selector()
+  static getBoatType(state: BoatCreationStateModel) {
+    return state.type;
   }
 
   @Action(BoatCreationAction.AddOwner)
-  addOwner(ctx: StateContext<BoatCreationStateModel>, { owner }: BoatCreationAction.AddOwner) {
-    const state = ctx.getState();
-    ctx.setState(
-      patch({
-        items: append([owner])
-      })
-    );
+  addOwner({ getState, patchState }: StateContext<BoatCreationStateModel>, {owner}: BoatCreationAction.AddOwner) {
+    patchState(owner);
   }
 
   @Action(BoatCreationAction.AddType)
-  addType(ctx: StateContext<BoatCreationStateModel>, { boatType }: BoatCreationAction.AddType) {
-    const state = ctx.getState();
-    ctx.setState(
-      patch({
-        items: append([boatType])
-      })
-    );
+  addType({ getState, patchState }: StateContext<BoatCreationStateModel>, {boatType}: BoatCreationAction.AddType) {
+    patchState(boatType);
   }
 
   @Action(BoatCreationAction.AddSettings)
-  addSettings(ctx: StateContext<BoatCreationStateModel>, { settings }: BoatCreationAction.AddSettings) {
-    const state = ctx.getState();
-    ctx.setState(
-      patch({
-        items: append([settings])
-      })
-    );
+  addSettings({ getState, patchState }: StateContext<BoatCreationStateModel>, {settings}: BoatCreationAction.AddSettings) {
+    patchState(settings);
   }
 }

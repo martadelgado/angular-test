@@ -15,7 +15,7 @@ export class BoatOwnerComponent implements OnInit {
   id = BOATS.length + 1;
   ownerTypes = ['Professional', 'Particular'];
   boatForm = new FormGroup({
-    id: new FormControl(0),
+    id: new FormControl(this.id),
     ownerType: new FormControl('', Validators.required),
   });
   buttonText = 'Suivant';

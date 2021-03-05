@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
-import {Boat} from '../boat';
 import {BoatCreationAction} from '../boat-creation/boat-creation.actions';
-import {Store} from '@ngxs/store';
-import {BOATS} from '../../mock-boats';
+import {Select, Store} from '@ngxs/store';
 import {Router} from '@angular/router';
+import {BoatCreationState} from '../boat-creation/boat-creation.state';
+import {Observable} from 'rxjs';
+import {BoatTypeModel} from '../models/boat-type.model';
 
 @Component({
   selector: 'app-boat-type',

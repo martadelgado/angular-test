@@ -6,16 +6,16 @@ import {BoatSettingsModel} from '../models/boat-settings.model';
 export namespace BoatCreationAction {
   export class AddOwner {
     public static readonly type = '[BoatOwnerModel] Add item';
-    constructor(public owner: BoatOwnerModel) { }
+    constructor(public owner: BoatOwnerModel[]) { }
   }
 
   export class AddType {
     public static readonly type = '[BoatTypeModel] Add item';
-    constructor(public boatType: BoatTypeModel) { }
+    constructor(public boatType: BoatTypeModel[]) { }
   }
 
   export class AddSettings {
     public static readonly type = '[BoatSettingsModel] Add item';
-    constructor(public settings: BoatSettingsModel) { }
+    constructor(public settings: BoatSettingsModel[]) { }
   }
 }

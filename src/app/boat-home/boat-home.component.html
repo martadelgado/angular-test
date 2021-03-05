@@ -2,11 +2,11 @@
   <div class="container__left">
     <div class="margin__bottom-3em">
       <h3 class="text-center">Ton sélection de bateaux</h3>
-      <input type="text" class="input__search" name="searchText" [value]="searchText" [(ngModel)]="searchText" (keyup)="search(searchText)">
+      <input type="text" class="input__search" name="searchText" [formControl]="searchText">
       <button class="button__search" (click)="search(searchText)">Rechercher</button>
     </div>
-    <ng-container *ngIf="boats$|async as boats">
-      <div *ngFor="let boat of boats" class="box__boat flex">
+    <ng-container *ngIf="displayedBoats">
+      <div *ngFor="let boat of displayedBoats;" class="box__boat flex">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" aria-label="Location Bateau Particulier &amp; Pro Click&amp;Boat">
           <title>Location Bateau Particulier &amp; Pro Click&amp;Boat</title>
           <g fill="none" fill-rule="evenodd">

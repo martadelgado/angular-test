@@ -5,7 +5,7 @@ export namespace BoatAction {
   export class AddBoat {
     public static readonly type = '[BoatModel] Add item';
 
-      constructor(public boat: BoatModel) { }
+      constructor(public boat: BoatModel[]) { }
   }
 
   export class FetchAllBoats {

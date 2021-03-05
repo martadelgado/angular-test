@@ -15,6 +15,8 @@ import {BoatState} from './boat/boat.state';
 import {BoatCreationState} from './boat-creation/boat-creation.state';
 import { ButtonComponent } from './button/button.component';
 import { ButtonBackComponent } from './button-back/button-back.component';
+import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { ButtonBackComponent } from './button-back/button-back.component';
   imports: [
     BrowserModule,
     NgxsModule.forRoot([BoatState, BoatCreationState]),
+    NgxsReduxDevtoolsPluginModule.forRoot({ disabled: environment.production }),
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule

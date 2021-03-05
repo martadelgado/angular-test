@@ -22,12 +22,14 @@
           <span>m</span>
         </div>
         <div class="flex margin__bottom-3em">
-          <div class="flex" *ngIf="isSail">
-            <label class="wrapper__input-radio">
-              <input type="checkbox" name="foil" formControlName="foil">
-              <span>Foil</span>
-            </label>
-          </div>
+          <ng-container *ngIf="boatType$|async as boatType">
+            <div class="flex" *ngIf="boatType === 'Voiler'">
+              <label class="wrapper__input-radio">
+                <input type="checkbox" name="foil" formControlName="foil">
+                <span>Foil</span>
+              </label>
+            </div>
+          </ng-container>
           <div class="flex">
             <label class="wrapper__input-radio">
               <input type="checkbox" name="annex" formControlName="annex">

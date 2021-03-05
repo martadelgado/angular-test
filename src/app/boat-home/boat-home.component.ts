@@ -4,7 +4,7 @@ import {BoatAction} from '../boat/boat.actions';
 import {BOATS} from '../../mock-boats';
 import {BoatState} from '../boat/boat.state';
 import {Observable} from 'rxjs';
-import {Boat} from '../boat';
+import {FormControl} from '@angular/forms';
 import {BoatModel} from '../models/boat.model';
 
 @Component({
@@ -15,23 +15,24 @@ import {BoatModel} from '../models/boat.model';
 export class BoatHomeComponent implements OnInit {
   boats = BOATS;
   buttonText = 'Commencer';
-  showBoat = true;
-  searchText!: string;
+  searchText = new FormControl();
 
-  @Select(BoatState.getBoats) boats$!: Observable<any>;
+  @Select(BoatState.getBoats) boats$!: Observable<BoatModel[]>;
+  displayedBoats: BoatModel[] = [];
 
   constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.store.dispatch(new BoatAction.FetchAllBoats());
+    this.boats$.subscribe( boats =>
+      this.displayedBoats = boats
+    );
   }
 
-  search(search: string): void {
-    for (const boat of this.boats) {
-      const regEx = new RegExp('\\b' + search + '\\b', 'i');
-      if (regEx.test(boat.type) && search !== '') {
-        this.showBoat = true;
-      }
-    }
+  search(search: FormControl): void {
+    const regEx = new RegExp('\\b' + search.value + '\\b', 'i');
+    const boatsToDisplay = this.boats.filter(boat => regEx.test(boat.type));
+    this.displayedBoats.push(boatsToDisplay);
+    console.log(this.displayedBoats);
   }
 }

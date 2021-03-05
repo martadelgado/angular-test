@@ -5,7 +5,6 @@ import {BoatCreationState} from '../boat-creation/boat-creation.state';
 import {BOATS} from '../../mock-boats';
 import {BoatAction} from '../boat/boat.actions';
 import {BoatModel} from '../models/boat.model';
-import {Boat} from '../boat';
 
 @Component({
   selector: 'app-boat-submit',
@@ -17,14 +16,13 @@ export class BoatSubmitComponent implements OnInit {
   buttonText = 'Sauvegarder';
 
   @Select(BoatCreationState.getCreatedBoat)
-  boatItems$!: Observable<Boat[]>;
-  boatItems!: Boat[];
+  boatItems$!: Observable<BoatModel[]>;
+  boatItems: BoatModel[] = [];
 
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.boatItems$
-      .subscribe(boatItems => {
+    this.boatItems$.subscribe(boatItems => {
         this.boatItems = boatItems;
       });
   }
